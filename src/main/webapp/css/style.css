@@ -516,3 +516,23 @@ td:last-child { border-right: none; }
 }
 
 .popup-cancel:hover { color: var(--ink); border-bottom-color: var(--ink); }
+
+/* ── ERROR MESSAGE ── */
+.error-msg {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--red);
+    border: 1px solid var(--red);
+    border-left: 3px solid var(--red);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.5rem;
+    background: rgba(192, 57, 43, 0.05);
+}
+.nav-logout {
+    color: var(--red);
+    border-color: transparent;
+}
+
+.nav-logout:hover {
+    border-bottom-color: var(--red);
+}

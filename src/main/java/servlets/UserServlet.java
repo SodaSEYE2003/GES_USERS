@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -41,6 +43,13 @@ public class UserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Vérifier que l'utilisateur est connecté
+	    HttpSession session = request.getSession(false);
+	    if(session == null || session.getAttribute("userConnecte") == null) {
+	        response.sendRedirect("login");
+	        return;
+	    }
+
 		String action = request.getServletPath();
 		switch(action) {
 		case "/new":

@@ -127,5 +127,24 @@ public class UserDao {
 			} 
 			return rowDeleted;
 		}
-
+	// FIND USER BY LOGIN AND PASSWORD
+		public User findByLoginAndPassword(String login, String password) {
+		    User user = null;
+		    String sql = "SELECT * FROM users WHERE login=? AND password=?";
+		    try(Connection connection = getConnection();
+		            PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+		        preparedStatement.setString(1, login);
+		        preparedStatement.setString(2, password);
+		        ResultSet rs = preparedStatement.executeQuery();
+		        while(rs.next()) {
+		            int id = rs.getInt("id");
+		            String nom = rs.getString("nom");
+		            String prenom = rs.getString("prenom");
+		            user = new User(id, nom, prenom, login, password);
+		        }
+		    } catch(Exception e){
+		        e.printStackTrace();
+		    }
+		    return user;
+		}
 }

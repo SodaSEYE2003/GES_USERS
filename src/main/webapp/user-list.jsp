@@ -16,6 +16,9 @@
     <nav class="masthead-nav">
         <a href="<%=request.getContextPath()%>/list" class="nav-item active">Utilisateurs</a>
         <a href="<%=request.getContextPath()%>/new" class="nav-item">Ajouter</a>
+        <a href="<%=request.getContextPath()%>/logout" class="nav-item nav-logout">
+            Deconnexion (<c:out value="${sessionScope.userConnecte.login}"/>)
+        </a>
     </nav>
 </header>
 

@@ -10,6 +10,7 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>default.xhtml</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
 	<error-page>
 		<exception-type>500</exception-type>
